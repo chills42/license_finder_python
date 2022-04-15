@@ -1,0 +1,15 @@
+# action.yml
+name: 'Run License Finder'
+description: 'Run the license_finder tool targeting python'
+inputs:
+  scan-dir:
+    description: 'scan directory'
+    required: true
+outputs:
+  results:
+    description: 'results'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -v ${{ inputs.scan-dir }}:/scan
